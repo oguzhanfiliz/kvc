@@ -45,7 +45,7 @@ $data = listView("user");
       <td><?php echo $item['email']; ?></td>
         <td>
             <a href=""><button type="button" class="btn btn-success">Düzenle</button></a>
-            <a href=""> <button type="button" class="btn btn-danger">sil</button></a>
+            <a href="<?php  echo "delete.php?id=".$item['id'] ?>"> <button type="button" class="btn btn-danger">sil</button></a>
 
         </td>
     </tr>

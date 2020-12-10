@@ -28,5 +28,11 @@ function get_data_add($username="",$password="",$email=""){
   
     return $sql;
 }
+function delete ($id){
+    $conn=connect();
+    $sql = mysqli_query($conn,"DELETE FROM user where id = $id");
+    header("Location: index.php");
+    return $sql; 
+}
 
 ?>
