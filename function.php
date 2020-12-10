@@ -2,7 +2,7 @@
 
 function connect(){
 
-    $conn= mysqli_connect("localhost","root","","dbtest");
+    $conn= mysqli_connect("localhost","root","","login");
     mysqli_set_charset($conn,"UTF8");
     if (mysqli_connect_errno()){
         echo "Connection error ";
@@ -25,6 +25,7 @@ function listView($table){
 function get_data_add($username="",$password="",$email=""){
     $conn = connect();
     $sql =  mysqli_query($conn,"INSERT INTO user (username,pas,email) values('$username','$password','$email')");
+  
     return $sql;
 }
 
