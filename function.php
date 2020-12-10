@@ -30,9 +30,22 @@ function get_data_add($username="",$password="",$email=""){
 }
 function delete ($id){
     $conn=connect();
-    $sql = mysqli_query($conn,"DELETE FROM user where id = $id");
+    $data = mysqli_query($conn,"DELETE FROM user where id = $id");
     header("Location: index.php");
-    return $sql; 
+    return $data; 
 }
+function updatelist($id){
+    $conn = connect();
+    $data = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM user where id=$id "));
+    return $data;
+}
+function update($id,$username,$pas,$email){
+    $conn = connect();
+    $data = mysqli_fetch_assoc(mysqli_query($conn,"UPDATE user set username='$username',pas='$pas',email='$email' where id = '$id'"));
+    header("Location: index.php");
+    return $data;
+}
+
+
 
 ?>

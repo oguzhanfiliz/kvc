@@ -28,7 +28,6 @@ $data = listView("user");
       <th scope="col">#</th>
       <th scope="col">id</th>
       <th scope="col">username</th>
-      <th scope="col">password</th>
       <th scope="col">İşlem</th>
         <th> <a href="register.php"> <button type="button" class="btn btn-success">Yeni ekle</button></th></a>
     </tr>
@@ -41,10 +40,9 @@ $data = listView("user");
     <tr>
       <th scope="row"><?php echo $item['id']; ?></th>
       <td><?php echo $item['username']; ?></td>
-      <td><?php echo $item['pas']; ?></td>
       <td><?php echo $item['email']; ?></td>
         <td>
-            <a href=""><button type="button" class="btn btn-success">Düzenle</button></a>
+            <a href="<?php echo "update.php?id=".$item['id'] ?>"><button type="button" class="btn btn-success">Düzenle</button></a>
             <a href="<?php  echo "delete.php?id=".$item['id'] ?>"> <button type="button" class="btn btn-danger">sil</button></a>
 
         </td>

@@ -1,7 +1,9 @@
 <?php include "function.php";
 $table="user";
+$id= $_GET['id'];
 $conn = connect();
-$data= listView($table);
+$data = updatelist($id);
+
 ?>
 <!doctype html>
 <html lang="tr">
@@ -22,26 +24,27 @@ $data= listView($table);
 <div class="container">
 
     <form action="updatesuccess.php" method="post">
-    <div class="mb-3" style="display:none">
+    <div class="mb-3" style="display:none" >
             <label for="exampleInputEmail1" class="form-label">Ad Soyadı</label>
-            <input type="text" name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ad soyad giriniz">
+            <input type="text" name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ad soyad giriniz" value="<?php echo $data['id'];?>">
+           
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Ad Soyadı</label>
-            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ad soyad giriniz">
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ad soyad giriniz" value="<?php echo $data['username'];?>">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email adresini giriniz">
+            <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email adresini giriniz" value="<?php echo $data['email'];?>">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Şifreyi giriniz">
+            <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Şifreyi giriniz" value="<?php echo $data['pas'];?>">
         </div>
 
-        <button type="submit" class="btn btn-primary">Ekle</button>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+       
     </form>
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
