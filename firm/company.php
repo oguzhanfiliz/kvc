@@ -1,7 +1,7 @@
 <?php include "function.php";
 $table="user";
 $conn = connect();
-$data = listView("user");
+$data= listView($table);
 ?>
 <!doctype html>
 <html lang="tr">
@@ -21,33 +21,33 @@ $data = listView("user");
 <div class="container">
 
   <div class="row">
-<h1>Yöneticiler</h1>
+
     <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">id</th>
       <th scope="col">username</th>
+      <th scope="col">password</th>
       <th scope="col">İşlem</th>
         <th> <a href="register.php"> <button type="button" class="btn btn-success">Yeni ekle</button></th></a>
     </tr>
   </thead>
-
   <tbody>
 <!--  --><?php // var_dump(count($listData)); ?>
-<?php /*while($listData = mysqli_fetch_assoc($data) ){ */?>
-<?php foreach($data as $item){ ?>
+<?php while($listData = mysqli_fetch_assoc($data) ){ ?>
     <tr>
-      <th scope="row"><?php echo $item['id']; ?></th>
-      <td><?php echo $item['username']; ?></td>
-      <td><?php echo $item['email']; ?></td>
+      <th scope="row"><?php echo $listData['id']; ?></th>
+      <td><?php echo $listData['username']; ?></td>
+      <td><?php echo $listData['password']; ?></td>
+      <td><?php echo $listData['email']; ?></td>
         <td>
-            <a href="<?php echo "update.php?id=".$item['id'] ?>"><button type="button" class="btn btn-success">Düzenle</button></a>
-            <a href="<?php  echo "delete.php?id=".$item['id'] ?>"> <button type="button" class="btn btn-danger">sil</button></a>
+            <button type="button" class="btn btn-success">Düzenle</button>
+            <button type="button" class="btn btn-danger">sil</button>
 
         </td>
     </tr>
-  <?php } ?>
+<!--  --><?php } ?>
   </tbody>
   </table>
   </div>

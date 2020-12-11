@@ -1,3 +1,7 @@
+<?php
+$path = $_SERVER["SCRIPT_NAME"];
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">Kuvarssoft</a>
@@ -5,12 +9,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+            <ul class="nav nav-pills flex-column flex-sm-row">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Ana Sayfa</a>
+                    <a class="nav-link <?php if ($path=="/crm/kvc/index.php"){echo "active";}; ?>" aria-current="page" href="../../../../crm/kvc/index.php">Ana Sayfa</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Yöneticiler</a>
+                <li class="nav-item ">
+                    <a class="nav-link <?php if ($path=="/crm/kvc/firm/index.php"){echo "active";}; ?>" href="../../../../crm/kvc/firm/index.php">Yöneticiler</a>
                 </li> 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Kurumlar</a>
