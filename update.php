@@ -3,6 +3,7 @@ $table="user";
 $id= $_GET['id'];
 $conn = connect();
 $data = updatelist($id);
+$firm = listFirm("firm")
 
 ?>
 <!doctype html>
@@ -30,18 +31,26 @@ $data = updatelist($id);
            
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Ad Soyadı</label>
+            <label for="name" class="form-label">Ad Soyadı</label>
             <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ad soyad giriniz" value="<?php echo $data['username'];?>">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <label for="email" class="form-label">Email</label>
             <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email adresini giriniz" value="<?php echo $data['email'];?>">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <label for="password" class="form-label">Password</label>
             <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Şifreyi giriniz" value="<?php echo $data['pas'];?>">
         </div>
-
+        <div class="form-group">
+            <label for="firm_id" name="firm_id">Firma Seç:</label>
+            <select class="form-control" id="firm_id" name="firm_id">
+                <?php foreach ($firm as $item) {?>
+                    <option value="<?php echo $item['firm_id'] ?>" <?php if($data['firma_id']==$item['firm_id']){echo "selected";}else{echo "";} ?>><?php echo $item['firm_name'] ?></option>
+                <?php } ?>
+            </select>
+        </div>
+<br>
         <button type="submit" class="btn btn-primary">Güncelle</button>
        
     </form>

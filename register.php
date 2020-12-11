@@ -2,6 +2,7 @@
 $table="user";
 $conn = connect();
 $data= listView($table);
+$firm = listFirm("firm");
 ?>
 <!doctype html>
 <html lang="tr">
@@ -23,17 +24,28 @@ $data= listView($table);
 
     <form action="datasuccess.php" method="post">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Ad Soyadı</label>
-            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ad soyad giriniz">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <label for="email" class="form-label">Ad Soyad</label>
             <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email adresini giriniz">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <label class="form-label">Email</label>
+            <input type="text" name="email" class="form-control" id="formGroupExampleInput" aria-describedby="formGroupExampleInput" placeholder="Ad soyad giriniz">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Şifreyi giriniz">
         </div>
+
+
+        <div class="form-group">
+            <label for="firma_id" name="firm_id">Firma Seç:</label>
+            <select class="form-control" id="firm_id" name="firm_id">
+                <?php foreach ($firm as $item) {?>
+                    <option value="<?php echo $item['firm_id'] ?>"><?php echo $item['firm_name'] ?></option>
+                <?php } ?>
+            </select>
+        </div>
+        <br>
 
         <button type="submit" class="btn btn-primary">Ekle</button>
     </form>

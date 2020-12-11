@@ -11,10 +11,10 @@ $path = $_SERVER["SCRIPT_NAME"];
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="nav nav-pills flex-column flex-sm-row">
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($path=="/crm/kvc/index.php"){echo "active";}; ?>" aria-current="page" href="../../../../crm/kvc/index.php">Ana Sayfa</a>
+                    <a class="nav-link <?php if ($path=="/crm/kvc/index.php"){echo "active";}; ?>" aria-current="page" href="../../../../crm/kvc/index.php">Kullanıcılar</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link <?php if ($path=="/crm/kvc/firm/index.php"){echo "active";}; ?>" href="../../../../crm/kvc/firm/index.php">Yöneticiler</a>
+                    <a class="nav-link <?php if ($path=="/crm/kvc/firm/index.php"){echo "active";}; ?>" href="../../../../crm/kvc/firm/index.php">Firmalar</a>
                 </li> 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Kurumlar</a>
